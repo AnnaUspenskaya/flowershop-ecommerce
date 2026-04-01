@@ -202,8 +202,8 @@ const session = await stripe.checkout.sessions.create({    payment_method_types:
     shipping_address_collection: {
     allowed_countries: ["US"],
   }, 
-      success_url: `${process.env.FRONTEND_URL}/success?session_id={CHECKOUT_SESSION_ID}`, 
-      cancel_url: `${process.env.FRONTEND_URL}/canceld`,
+         success_url: `${process.env.FRONTEND_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
+         cancel_url: `${process.env.FRONTEND_URL}/cancel`,
 });
   res.send({url: session.url});
 } catch (error) {
