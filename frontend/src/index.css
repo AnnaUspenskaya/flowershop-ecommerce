@@ -1,0 +1,39 @@
+/* NAVBAR */
+.custom-navbar {
+  background: linear-gradient(90deg, #ffb6c1, #ff69b4);
+}
+
+/* FOOTER */
+.custom-footer {
+  background: #d63384;
+}
+
+/*  GLOBAL */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+
+.user-menu-container {
+  padding: 10px 0;
+}
+
+
+.logout-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  padding: 8px;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 1000;
+  min-width: 100px;
+}
+
+
+.user-menu-container:hover .logout-dropdown {
+  display: block;
+}

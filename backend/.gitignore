@@ -1,0 +1,20 @@
+# Dependency directories
+node_modules/
+
+# Environment variables (CRITICAL)
+.env
+
+# Logs
+logs
+*.log
+
+# Editor folders
+.vscode/
+.idea/
+.DS_Store
+
+# Process manager files
+pids
+*.pid
+*.seed
+*.pid.lock
