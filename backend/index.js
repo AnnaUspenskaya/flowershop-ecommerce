@@ -11,7 +11,12 @@ const User = require('./models/User.js');
 const Order = require('./models/Order');
 const stripe = require('stripe')(process.env.STRIPE_SK);
 
-app.use(cors())
+// app.use(cors())
+app.use(cors({
+  origin: "https://flowershop-azsd.onrender.com/", 
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 app.use(express.json());
 
 app.use(express.urlencoded({extended:true}));
