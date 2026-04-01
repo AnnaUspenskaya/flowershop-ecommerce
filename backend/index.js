@@ -13,7 +13,7 @@ const stripe = require('stripe')(process.env.STRIPE_SK);
 
 // app.use(cors())
 app.use(cors({
-  origin: "https://flowershop-azsd.onrender.com/", 
+  origin: "https://flowershop-azsd.onrender.com", 
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
