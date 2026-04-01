@@ -7,6 +7,7 @@ function Shop({ cart, setCart }) {
   const [products, setProducts] = useState([]);
   const location = useLocation();
   const navigate = useNavigate();
+  const baseUrl = import.meta.env.VITE_API_URL;
 
   const queryParams = new URLSearchParams(location.search);
   const selectedCategory = queryParams.get("category");
@@ -21,7 +22,7 @@ function Shop({ cart, setCart }) {
   }, []);
 
   const fetchProducts = async () => {
-    const res = await axios.get("http://localhost:3500/items");
+    const res = await axios.get(`${baseUrl}/items`);
     setProducts(res.data);
   };
 

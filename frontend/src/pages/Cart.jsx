@@ -59,7 +59,6 @@ function Cart({ cart, setCart }) {
     try {
       const res = await checkoutCart(cart);
 
-      // OPTIONAL: save note locally for now
       localStorage.setItem("orderNote", form.note);
 
       window.location.href = res.url;

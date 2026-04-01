@@ -6,6 +6,7 @@ import {Link, useNavigate} from "react-router-dom";
 function Login() {
   const [isSignup, setIsSignup] = useState(false);
   const navigate = useNavigate(); 
+  const baseUrl = import.meta.env.VITE_API_URL;
 
   const [form, setForm] = useState({
     email: "",
@@ -24,8 +25,8 @@ function Login() {
 
     try {
       const url = isSignup
-        ? "http://localhost:3500/signup"
-        : "http://localhost:3500/login";
+        ? `${baseUrl}/signup`
+        : `${baseUrl}/login`;
 
       const res = await axios.post(url, form);
 

@@ -4,6 +4,7 @@ import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 
 function Home ({cart, setCart}) {
+  const baseUrl = import.meta.env.VITE_API_URL;
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [cartMessage, setCartMessage] = useState("");
@@ -12,7 +13,7 @@ function Home ({cart, setCart}) {
   }, []);
 
   const fetchProducts = async () => {
-    const res = await axios.get("http://localhost:3500/items");
+    const res = await axios.get(`${baseUrl}/items`);
     setProducts(res.data);
   };
 const featuredProducts = products.filter(

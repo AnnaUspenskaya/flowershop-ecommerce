@@ -9,6 +9,7 @@ function ProductDetails({ cart, setCart }) {
   const [qty, setQty] = useState(1);
   const [allProducts, setAllProducts] = useState([]);
   const [message, setMessage] = useState("");
+  const baseUrl = import.meta.env.VITE_API_URL;
 
 
   useEffect(() => {
@@ -16,7 +17,7 @@ function ProductDetails({ cart, setCart }) {
   }, []);
 
   const fetchProduct = async () => {
-    const res = await axios.get(`http://localhost:3500/items`);
+    const res = await axios.get(`${baseUrl}/items`);
     setAllProducts(res.data);
     const found = res.data.find((p) => p._id === id);
     setProduct(found);
