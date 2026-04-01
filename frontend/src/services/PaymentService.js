@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const baseUrl = "http://localhost:3500";
+  const baseUrl = import.meta.env.VITE_API_URL
+
 
 export async function checkoutCart(cartItems) {
   const response = await axios.post(

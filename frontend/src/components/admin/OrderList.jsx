@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 function OrderList() {
+  const baseUrl = import.meta.env.VITE_API_URL
   const [orders, setOrders] = useState([]);
 
 useEffect(() => {
@@ -12,7 +13,7 @@ useEffect(() => {
 }, []);
 
   const fetchOrders = async () => {
-    const res = await axios.get("http://localhost:3500/orders");
+    const res = await axios.get(`${baseUrl}/orders`);
     setOrders(res.data);
   };
 

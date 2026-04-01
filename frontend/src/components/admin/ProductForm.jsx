@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 function ProductForm() {
+  const baseUrl = import.meta.env.VITE_API_URL
   const [product, setProduct] = useState({
     name: "",
     price: "",
@@ -28,7 +29,7 @@ function ProductForm() {
   }, []);
 
   const fetchProducts = async () => {
-    const res = await axios.get("http://localhost:3500/items");
+    const res = await axios.get(`${baseUrl}/items`);
     setProducts(res.data);
   };
 
@@ -73,7 +74,7 @@ const handleImageUpload = async (e) => {
 
     try {
       const res = await axios.get(
-        `http://localhost:3500/items/check/${product.name}`
+        `${baseUrl}/items/check/${product.name}`
       );
 
       if (res.data.exists) {
@@ -99,11 +100,11 @@ const handleImageUpload = async (e) => {
         let res;
         if(editItemId){
        res = await axios.put(
-        `http://localhost:3500/items/${editItemId}`,
+        `${baseUrl}/items/${editItemId}`,
         product
         );
         }else{
-            res =await axios.post("http://localhost:3500/items",
+            res =await axios.post(`${baseUrl}/items`,
                 product
             );
         }
@@ -159,7 +160,7 @@ const openDeleteModal = (item) => {
 
 const confirmDelete = async () => {
     try{
-        await axios.delete(`http://localhost:3500/items/${itemToDelete._id}`);
+        await axios.delete(`${baseUrl}/items/${itemToDelete._id}`);
         setShowModal(false);
         fetchProducts();
     }catch(err){
@@ -168,7 +169,7 @@ const confirmDelete = async () => {
 };
 const toggleFeatured = async(id) => {
     try{
-        await axios.put(`http://localhost:3500/items/featured/${id}`);
+        await axios.put(`${baseUrl}/items/featured/${id}`);
         fetchProducts();
     }catch (err) {
         console.log(err);
